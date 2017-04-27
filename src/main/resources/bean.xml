@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context">
+    <bean id="circle" class="linhtran.Circle" name="circle">
+        <property name="point">
+            <bean class="linhtran.Point">
+                <property name="x" value="5"/>
+                <property name="y" value="6"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="triangle" class="linhtran.Triangle" name="triangle">
+        <property name="pointA">
+            <bean class="linhtran.Point">
+                <property name="x" value="5"/>
+                <property name="y" value="6"/>
+            </bean>
+        </property>
+        <property name="pointB">
+            <bean class="linhtran.Point">
+                <property name="x" value="5"/>
+                <property name="y" value="6"/>
+            </bean>
+        </property>
+        <property name="pointC">
+            <bean class="linhtran.Point">
+                <property name="x" value="5"/>
+                <property name="y" value="6"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="requried" class="linhtran.Circle" >
+        <property name="point">
+            <bean class="linhtran.Point">
+                <property name="x" value="848"/>
+                <property name="y" value="657575"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="autowire" class="linhtran.Circle2">
+    </bean>
+    <bean id="point" class="linhtran.Point">
+        <property name="x" value="88"/>
+        <property name="y" value="88"/>
+    </bean>
+
+    <bean id="autowire2" class="linhtran.Circle2">
+    </bean>
+    <bean id="point2" class="linhtran.Point">
+        <qualifier value="qualifier"/>
+        <property name="x" value="88899"/>
+        <property name="y" value="88"/>
+    </bean>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="linhtran"/>
+    <context:component-scan base-package="annotationimport"/>
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+</beans>
